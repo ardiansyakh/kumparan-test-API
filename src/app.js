@@ -9,6 +9,7 @@ if(process.env.NODE_ENV !== 'prod') {
 }
 
 const Db = require('./database/config')
+const error = require("./helper/error")
 Db.initConnection()
 const app = express()
 const port = process.env.PORT || 3000
@@ -17,6 +18,7 @@ app.use(cors({
 }))
 app.use(bodyParser.json())
 app.use('/', indexRoute)
+app.use(error)
 const server = http.createServer(app)
 server.listen(port, ()=> {
     console.log('running on port: ', port)
