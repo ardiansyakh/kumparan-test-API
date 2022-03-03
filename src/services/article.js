@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb")
 const ArticleModel = require("../models/article")
 
 class ArticleService {
@@ -28,6 +29,9 @@ class ArticleService {
             count,
             data: articles
         }
+    }
+    async getDetailArticles(id) {
+        return await ArticleModel.getDetailArticle(ObjectId(id))
     }
     async addArticle(params) {
         const newArticle = ArticleModel.newInstance(params)

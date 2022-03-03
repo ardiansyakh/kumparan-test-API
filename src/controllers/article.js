@@ -1,6 +1,20 @@
 const ArticleService = require("../services/article")
 
 class ArticleController {
+    static getDetailArticles = async (req, res, next) => {
+        try {
+            new ArticleService().getDetailArticles(req.params.id)
+            .then(data => {
+                res.status(200).json({data})
+            })
+            .catch(err => {
+                throw(err)
+            })
+        } 
+        catch (err) {
+            next(err)
+        }
+    }
     static getAllArticles = async (req, res, next) => {
         try {
             new ArticleService().getAllArticles(req.query)

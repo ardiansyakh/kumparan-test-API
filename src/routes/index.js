@@ -7,5 +7,6 @@ route.get('/', (req, res, next) => {
 })
 route.get('/articles', ArticleController.getAllArticles)
 route.post('/articles', ArticleController.addArticle)
+route.get('/articles/:id', ArticleController.getDetailArticles)
 
 module.exports = route
