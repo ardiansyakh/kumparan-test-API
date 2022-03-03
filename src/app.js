@@ -3,6 +3,7 @@ const bodyParser = require("body-parser")
 const cors = require('cors')
 const dotenv = require('dotenv')
 const indexRoute = require('./routes')
+const http = require('http')
 if(process.env.NODE_ENV !== 'prod') {
     dotenv.config()
 }
@@ -16,7 +17,8 @@ app.use(cors({
 }))
 app.use(bodyParser.json())
 app.use('/', indexRoute)
-app.listen(port, ()=> {
+const server = http.createServer(app)
+server.listen(port, ()=> {
     console.log('running on port: ', port)
 })
 

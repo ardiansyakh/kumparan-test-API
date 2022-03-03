@@ -33,7 +33,7 @@ class ArticleController {
         try {
             new ArticleService().addArticle(req.body)
             .then(data => {
-                res.status(200).json({data})
+                res.status(201).json({data})
             })
             .catch(err => {
                 throw(err)

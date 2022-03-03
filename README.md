@@ -49,7 +49,7 @@ CODE: 500
 ## get detail article
 - **URL:**
 ```
-/article
+/articles
 ```
 - **METHOD:**
 ```
@@ -80,7 +80,7 @@ CODE: 500
 ## create new article
 - **URL:**
 ```
-/article
+/articles
 ```
 - **METHOD:**
 ```
